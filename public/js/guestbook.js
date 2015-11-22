@@ -7,7 +7,8 @@ new Vue({
 		newMessage: {
 			name: '',
 			message: ''
-		}
+		},
+		submited: false
 	},
 
 	computed: {
@@ -28,6 +29,18 @@ new Vue({
 			this.$http.get('/api/messages', function(messages) {
 				this.$set('messages', messages);
 			});
+		},
+
+		onSubmitForm: function(event) {
+			event.preventDefault();
+
+			var message = this.newMessage;
+
+			this.messages.push(message);
+
+			this.submited = true;
+
+			this.$http.post('/api/messages', message);
 		}
 	}
 
