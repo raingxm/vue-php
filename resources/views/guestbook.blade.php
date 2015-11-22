@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Guestbook</title>
+	<meta id="token" name="token" value="{{ csrf_token() }}">
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<style type="text/css">
 		body {
