@@ -3,7 +3,20 @@ new Vue({
 	el: "#guestbook",
 
 	data: {
-		messages: []
+		messages: [],
+		newMessage: {
+			name: '',
+			message: ''
+		}
+	},
+
+	computed: {
+		errors: function() {
+			for(key in this.newMessage) {
+				if( !this.newMessage[key] ) return true;
+			}
+			return false;
+		}
 	},
 
 	ready: function() {
